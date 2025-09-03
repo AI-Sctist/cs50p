@@ -3,6 +3,7 @@ class Transaction:
     Contains the attributes of a transaction. Can only be changed via the service module
     for data validation
     """
+
     def __init__(self, type, amount, date_time, category, note):
         self._type = type
         self._amount = amount
@@ -13,11 +14,11 @@ class Transaction:
     @property
     def type(self):
         return self._type
-    
+
     @property
     def amount(self):
         return self._amount
-    
+
     @property
     def date_time(self):
         return self._date_time
@@ -29,7 +30,7 @@ class Transaction:
     @property
     def note(self):
         return self._note
-    
+
     def _set_type(self, value):
         self._type = value
 
@@ -50,6 +51,7 @@ class Categories:
     """
     Contains the pre-defined and user-defined categories
     """
+
     def __init__(self, categories):
         self.categories = {}
         self.categories.update(categories)
@@ -60,10 +62,12 @@ class Categories:
     def delete(self, category):
         self.categories.discard(category)
 
+
 class User:
     """
     Contains the user's income and expense. Can only be changed via the service module
     """
+
     def __init__(self, transaction_history):
         self._income = 0
         self._expense = 0
@@ -77,11 +81,11 @@ class User:
     @property
     def income(self):
         return self._income
-    
+
     @property
     def expense(self):
         return self._expense
-    
+
     @property
     def balance(self):
         return self.income - self.expense
