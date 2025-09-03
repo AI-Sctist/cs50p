@@ -4,12 +4,17 @@ class Transaction:
     for data validation
     """
 
-    def __init__(self, type, amount, date_time, category, note):
+    def __init__(self, id, type, amount, date_time, category, note):
+        self._id = id
         self._type = type
         self._amount = amount
         self._date_time = date_time
         self._category = category
         self._note = note
+
+    @property
+    def id(self):
+        return self._id
 
     @property
     def type(self):
@@ -69,14 +74,20 @@ class User:
     """
 
     def __init__(self, transaction_history):
+        self._transaction_count = 0
         self._income = 0
         self._expense = 0
 
         for transaction in transaction_history:
+            self._transaction_count += 1
             if transaction.type == "income":
                 self._income += transaction.amount
             else:
                 self._expense += transaction.amount
+
+    @property
+    def transaction_count(self):
+        return self._transaction_count
 
     @property
     def income(self):
