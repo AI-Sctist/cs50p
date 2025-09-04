@@ -2,6 +2,10 @@ class Transaction:
     """
     Contains the attributes of a transaction. Can only be changed via the service module
     for data validation
+
+    Requirements:
+        - do not contain white spaces at both ends
+        - type and category are in lowercase
     """
 
     def __init__(self, id, type, amount, date_time, category, note):
@@ -55,6 +59,10 @@ class Transaction:
 class Categories:
     """
     Contains the pre-defined and user-defined categories
+
+    Requirements:
+        - do not contain white spaces at both ends
+        - all cats are in lowercase
     """
 
     def __init__(self, categories):
