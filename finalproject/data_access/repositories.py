@@ -22,7 +22,7 @@ class TransactionRepository:
             pen = csv.DictWriter(file, fieldnames=TransactionRepository.FIELDNAMES)
             pen.writerow(transaction)
 
-    def read_all(self):
+    def readall(self):
         with open(self.file_path, "r", newline="") as file:
             for transaction in csv.DictReader(file):
                 yield transaction
@@ -49,6 +49,14 @@ class TransactionRepository:
         os.replace(self.tmp, self.file_path)
 
     def delete(self, id):
+        """
+        Delete a transaction in the database, return a dict(type, amount) of the transaction
+        for calculating user's balance
+        """
+
+        # Return data
+        return_data = None
+
         # Temporary store data
         with open(self.file_path, "r", newline="") as src, open(
             self.tmp,
@@ -59,9 +67,16 @@ class TransactionRepository:
             for transaction in csv.DictReader(src):
                 if transaction["id"] != id:
                     pen.writerow(transaction)
+                else:
+                    return_data = {
+                        "type": transaction["type"],
+                        "amount": transaction["amount"],
+                    }
 
         # Write to src file
         os.replace(self.tmp, self.file_path)
+
+        return return_data
 
 
 class CategoryRepository:
@@ -81,7 +96,7 @@ class CategoryRepository:
         with open(self.file_path, "a") as file:
             file.write(category + "\n")
 
-    def read_all(self):
+    def readall(self):
         with open(self.file_path, "r") as file:
             for category in file:
                 yield category.strip()
