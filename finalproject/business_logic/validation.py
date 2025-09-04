@@ -9,13 +9,13 @@ class TransactionValidation:
     """
 
     def __init__(self, categories):
-        self.defined_categories = categories # Store state, so i use class
+        self.defined_categories = categories # Store state, so use class
 
     def type_validate(self, value):
         return value in ["income", "expense"]
 
     def amount_validate(self, value):
-        return isinstance(value, int)
+        return value > 0
 
     def date_time_validate(self, value):
         try:
