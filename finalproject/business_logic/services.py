@@ -1,6 +1,4 @@
-import data_access
 import entities
-import validation
 
 
 class UserService:
@@ -30,9 +28,9 @@ class UserService:
 
 
 class TransactionService:
-    def __init__(self, validation):
-        self.data_access = data_access.repositories.TransactionRepository()
+    def __init__(self, validation, transaction_repository):
         self.validation = validation
+        self.data_access = transaction_repository
 
         self.id_digit_amount = 9
 
