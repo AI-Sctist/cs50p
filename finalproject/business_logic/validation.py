@@ -26,11 +26,3 @@ class TransactionValidation:
 
     def category_validate(self, value):
         return value in self.defined_categories
-
-    def overall(self, transaction):
-        return (
-            self.type_validate(transaction.type)
-            and self.amount_validate(transaction.amount)
-            and self.date_time_validate(transaction.date_time)
-            and self.category_validate(transaction.category)
-        )
