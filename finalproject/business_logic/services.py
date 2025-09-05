@@ -78,7 +78,9 @@ class TransactionService:
                         raise TypeError("Transaction id must be str")
                     else:
                         value = value.strip().lower()
-                        if not (len(value) == self.id_digit_amount and value.isnumeric()):
+                        if not (
+                            len(value) == self.id_digit_amount and value.isnumeric()
+                        ):
                             return False
                 case "type":
                     if not isinstance(value, str):
@@ -116,4 +118,4 @@ class TransactionService:
                 case _:
                     raise ValueError("Unknown keyword argument: {key}")
 
-        return True # Pass all tests
+        return True  # Pass all tests
