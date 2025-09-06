@@ -67,7 +67,8 @@ class Categories:
 
     def __init__(self, categories):
         self.categories = {}
-        self.categories.update(categories)
+        for category in categories:
+            self.categories.add(category)
 
     def create(self, category):
         self.categories.add(category)
