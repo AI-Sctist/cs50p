@@ -9,4 +9,4 @@ https://cs50.harvard.edu/python/
 - Certificate of completion (upon finishing)
 
 ## Status
-On pause - until after university entrance exams
+On pause - until after university entrance exams 😑
