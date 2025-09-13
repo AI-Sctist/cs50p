@@ -1,0 +1,11 @@
+food
+transportation
+contact fee
+clothes
+electric bill
+medical
+housing expense
+exchange
+houseware
+cosmetic
+education
